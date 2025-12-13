@@ -1,6 +1,7 @@
-import React from 'react'
-import styles from './forja.module.css'
+import React from 'react';
+import styles from './forja.module.css';
 import database from '@/database/database';
+import Link from 'next/link';
 
 export default async function forja() {
     const sql = 'SELECT * FROM jogos WHERE id_sala = 1'
@@ -10,6 +11,9 @@ export default async function forja() {
     <div className={styles.container}>
         <div className='header'>
             <h1>Jogos do Forja</h1>
+            <Link href="/cadastrarJogos">
+                Cadastre um jogo
+            </Link>
         </div>
         <div className={styles.vetrine}>
             {

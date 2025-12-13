@@ -1,0 +1,69 @@
+/* Estilo do cabeçalho */
+.header {
+  background: #2c3e50;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+/* Formulário */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #f5f5f5;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 70%;
+}
+
+/* Labels */
+.formulario label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: -10px;
+}
+
+/* Inputs de texto */
+.formulario input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* Inputs rádio */
+.formulario input[type="radio"] {
+  margin-right: 6px;
+}
+
+/* Botão */
+.formulario button {
+  background: #2ecc71;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.formulario button:hover {
+  background: #27ae60;
+}
+
+/* Mensagem */
+.formulario p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2c3e50;
+}

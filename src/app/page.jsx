@@ -4,7 +4,12 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div>
-      <h1>Projeto Tabuleiros do Saber</h1>
+      <div>
+        <h1>Projeto Tabuleiros do Saber</h1>
+        <Link href="/cadastrarJogos">
+          Cadastre um jogo
+        </Link>
+      </div>
 
       <div>
         <Link href="/forja">
