@@ -1,31 +1,36 @@
 "use client"
-import React, { useState } from 'react'
-import styles from './cadastrarJogos.module.css'
+import React, { useState } from 'react';
+import { useRouter } from "next/navigation";
+import styles from './cadastrarJogos.module.css';
+import Link from "next/link";
 
 export default function Page() {
 
   const [mensagem, setMensagem] = useState("");
+  const router = useRouter();
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+  e.preventDefault();
+  const formData = new FormData(e.target);
 
-    const resposta = await fetch("/api/cadastrarJogo", {
-      method: "POST",
-      body: formData
-    });
+  const resposta = await fetch("/api/cadastrarJogo", {
+    method: "POST",
+    body: formData
+  });
 
-    const resultado = await resposta.json();
+  const resultado = await resposta.json();
 
-    if (resultado === "ok") {
-      setMensagem("Jogo cadastrado!");
-    } else {
-      setMensagem("Erro ao cadastrar!");
-    }
+  if (resultado === "ok") {
+    setMensagem("Jogo cadastrado!");
+    e.target.reset();
+    router.refresh();
+  } else {
+    setMensagem("Erro ao cadastrar!");
   }
+}
 
   return (
-    <div >
+    <div>
       <div className={styles.header}><h1>Cadastro de Jogos</h1></div>
       <div className={styles.container}>
         <form className={styles.formulario} onSubmit={handleSubmit}>
@@ -50,10 +55,12 @@ export default function Page() {
           <input name="linkImagem" type="text" required />
 
           <button type="submit">Cadastrar no Banco</button>
+          
+          <Link href="/">Voltar ao início</Link>
 
           {mensagem && <p>{mensagem}</p>}
         </form>
       </div>
     </div>
   )
-}
+};

@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Esse é um projeto [Next.js](https://nextjs.org) com [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Tabuleiros do Saber
+Esse site partiu de um projeto que participo chamado "Tabuleiros do Saber", esse site engloba as duas salas de jogos do IFCE, campus Jaguaruana e Aracati, e tem como objetivo ser uma exposição dos jogos que existem nas duas salas.
+## Descrição do projeto
+Esse projeto possue as seguintes funcionalidades:
+- Cadastrar jogos;
+- Mostrar jogos da sala.
 
-First, run the development server:
+## Tecnologias utilizadas
+- Frame-Work:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    [![My Skills](https://skillicons.dev/icons?i=next)](https://skillicons.dev)
+
+- FrontEnd:
+
+    [![My Skills](https://skillicons.dev/icons?i=js,html,css,react)](https://skillicons.dev)
+
+- BackEnd:
+
+    [![My Skills](https://skillicons.dev/icons?i=js,nodejs)](https://skillicons.dev)
+
+- Banco de dados:
+
+    [![My Skills](https://skillicons.dev/icons?i=vercel)](https://skillicons.dev)
+
+- Hospedagem e controle de versão:
+
+    [![My Skills](https://skillicons.dev/icons?i=github)](https://skillicons.dev)
+
+## Designe do projeto
+
+## APIs utilizadas
+**cadastrarJogo:** Pega as informações do endPoint ``/api/cadastrarJogo`` e envia para o banco no formato SQL.
+
+**jogos:** através do endPoint ``http://localhost:3000/api/jogos?id_sala=${id}`` localiza e requisita os jogos no banco de dados que tem os id_sala iguais ao id repassado na página inicial, após clicar em alguma das salas de jogos, e transforma os dados do formato SQL para Json.
+
+**salas:** através do endPoint ``http://localhost:3000/api/salas?id=${id}`` localiza e requisita as salas no banco de dados que tem o id igual ao id repassado na página inicial, após clicar em alguma das salas de jogos, e transforma os dados do formato SQL para Json.
+
+## EndPoints do projeto
+**Exemplo de endPoint:** ``http://localhost:3000/api/jogos?id_sala=${id}``
+
+**Exemplo de Resposta:**
+```json
+[
+    {
+        "categoria": "Jogo de Entrada",
+        "editora": "Devir",
+        "id_jogo": 2,
+        "id_sala": 1,
+        "linkimagem": "https://devir.com.br/wp-content/uploads/2021/01/imagem-destaque-site-2.png",
+        "titulo": "Catan"
+    },
+    {
+        "categoria": "Jogo de entrada",
+        "editora": "Mattel",
+        "id_jogo": 4,
+        "id_sala": 1,
+        "linkimagem": "https://http2.mlstatic.com/D_Q_NP_767930-MLA96896910512_112025-F.webp",
+        "titulo": "Uno flip"
+    },
+    {
+        "categoria": "Jogo de entrada",
+        "editora": "Paper Games",
+        "id_jogo": 5,
+        "id_sala": 1,
+        "linkimagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAQlGDN_EbWcWNEawn9o1RPrPo3eamgfQpTA&s",
+        "titulo": "Trio"
+    },
+    {
+        "categoria": "Jogo de cartas",
+        "editora": "Galápagos",
+        "id_jogo": 6,
+        "id_sala": 1,
+        "linkimagem": "https://m.media-amazon.com/images/I/71wWeRHMiPL._AC_SX679_.jpg",
+        "titulo": "Exploding Kittens"
+    }
+]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Exemplo de endPoint:** ``http://localhost:3000/api/salas?id=${id}``
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Exemplo de Resposta:**
+```json
+[
+    {
+        "campus": "Aracati",
+        "id": 2,
+        "nome": "Tabulando",
+        "responsavel": "Andressa Bezerra"
+    }
+]
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Exemplo de endPoint:** ``/api/cadastrarJogo``
 
-## Learn More
+**Exemplo de Resposta:** Cadastra os dados no banco de dados a partir do método POST utilizando um formulário como forma de coleta de dados.
 
-To learn more about Next.js, take a look at the following resources:
+## Como executar a parte Back-end do projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**1. Clonar o projeto ou baixar os arquivo para a sua máquina.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**2. Instalar as dependências executando o comando abaixo:**
 
-## Deploy on Vercel
+```
+npm i pg
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**3. Executar o servidor com os comandos:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+npm run dev
+``` 
+
+## Funcionalidades
+- [x] Cadastrar jogo;
+- [x] Mostrar jogos;
+- [ ] Pesquisar jogo;
+- [ ] Excluir jogo;
+- [ ] Autenticação.
+
+## Implementações futuras
+- Criar uma função que salve os itens que foram comprados no banco.
+- Implementar páginas do header.
+- Melhorar o FrontEnd.
+- Tornar o site responsivo.
+
+## <img src="./public/image.png" width="40px"> Contatos:
+Caso queira me pagar algum valor, primeiro me contate em algum desses, para que eu mande uma chave pix aleatória😁.
+- Email: guilhermerochasilva019@gmail.com
+- LinkedIn: https://www.linkedin.com/in/guilherme-rocha-080831323/
+- GitHub: https://github.com/GuiEmanuel
