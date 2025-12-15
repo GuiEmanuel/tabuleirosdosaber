@@ -3,17 +3,18 @@ import styles from "./sala.module.css";
 
 export default async function Sala({ params }) {
 
-  const { id } = await params;
+  const { id } = params;
 
-  const resJogos = await fetch(
-    `/api/jogos?id_sala=${id}`,
-    { cache: "no-store" } /*obriga o next a não guardar 
-                           esses dados em cache*/
-  );
+  const res = await fetch(`/api/jogos?id_sala=${id}`, {
+  cache: "no-store",
+});
 
-  if (!resJogos.ok) {
-    throw new Error("Erro ao buscar jogos");
-  }
+if (!res.ok) {
+  return <p>Erro ao carregar os jogos</p>;
+}
+
+const jogos = await res.json();
+
 
   const resSala = await fetch(
     `/api/salas?id=${id}`,
@@ -21,12 +22,13 @@ export default async function Sala({ params }) {
   );
 
   if (!resSala.ok) {
-    throw new Error("Erro ao buscar sala");
+    return <p>Erro ao carregar a sala</p>;
   }
+
+  const sala = await resSala.json();
   
 
-  const jogos = await resJogos.json();
-  const sala = await resSala.json();
+
   console.log(sala)
 
   return (
