@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import database from "@/database/database";
 
 export async function POST(req) {
