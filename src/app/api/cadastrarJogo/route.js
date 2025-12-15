@@ -10,6 +10,13 @@ export async function POST(req) {
     const editora = formData.get("editora");
     const linkImagem = formData.get("linkImagem");
 
+    if (!titulo || !idSala || !categoria || !editora || !linkImagem) {
+      return Response.json(
+        { error: "Dados incompletos" },
+        { status: 400 }
+      );
+    }
+
     const sql = `
       INSERT INTO jogos (id_sala, titulo, categoria, editora, linkImagem)
       VALUES ($1, $2, $3, $4, $5)
@@ -19,9 +26,16 @@ export async function POST(req) {
 
     await database.query(sql, values);
 
-    return Response.json("ok");
+    return Response.json(
+      { status: "ok" },
+      { status: 201 }
+    );
+
   } catch (erro) {
     console.error(erro);
-    return Response.json("erro");
+    return Response.json(
+      { error: "Erro ao cadastrar jogo" },
+      { status: 500 }
+    );
   }
 }

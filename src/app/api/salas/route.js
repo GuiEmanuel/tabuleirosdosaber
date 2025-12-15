@@ -13,14 +13,22 @@ export async function GET(request) {
     }
 
     const sql = `
-      SELECT * 
-      FROM salasdejogos 
+      SELECT *
+      FROM salasdejogos
       WHERE id = $1
+      LIMIT 1
     `;
 
     const responseDB = await database.query(sql, [idSala]);
 
-    return Response.json(responseDB.rows, { status: 200 });
+    if (responseDB.rows.length === 0) {
+      return Response.json(
+        { error: "Sala não encontrada" },
+        { status: 404 }
+      );
+    }
+
+    return Response.json(responseDB.rows[0], { status: 200 });
 
   } catch (error) {
     console.error(error);

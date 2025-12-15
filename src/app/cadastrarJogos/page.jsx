@@ -10,32 +10,35 @@ export default function Page() {
   const router = useRouter();
 
   async function handleSubmit(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
+    e.preventDefault();
+    const formData = new FormData(e.target);
 
-  const resposta = await fetch("/api/cadastrarJogo", {
-    method: "POST",
-    body: formData
-  });
+    const resposta = await fetch("/api/cadastrarJogo", {
+      method: "POST",
+      body: formData
+    });
 
-  const resultado = await resposta.json();
+    // 🔒 proteção obrigatória
+    if (!resposta.ok) {
+      setMensagem("Erro ao cadastrar!");
+      return;
+    }
 
-  if (resultado === "ok") {
-    setMensagem("Jogo cadastrado!");
-    e.target.reset();
-    router.refresh();
-  } else {
-    setMensagem("Erro ao cadastrar!");
+    const resultado = await resposta.json();
+
+    if (resultado === "ok") {
+      setMensagem("Jogo cadastrado!");
+      e.target.reset();
+      router.refresh();
+    } else {
+      setMensagem("Erro ao cadastrar!");
+    }
   }
-}
 
   return (
     <div>
       <div className={styles.header}>
-
-        <h1>
-          Cadastro de Jogos
-        </h1>
+        <h1>Cadastro de Jogos</h1>
 
         <Link href="/">
           Voltar ao início
@@ -43,11 +46,9 @@ export default function Page() {
       </div>
 
       <div className={styles.container}>
-
         <form className={styles.formulario} onSubmit={handleSubmit}>
 
           <label>Título do jogo</label>
-
           <input name="titulo" type="text" required />
 
           <label>Sala de jogos</label>
@@ -61,15 +62,12 @@ export default function Page() {
           </div>
 
           <label>Categoria</label>
-
           <input name="categoria" type="text" required />
 
           <label>Editora</label>
-
           <input name="editora" type="text" required />
 
           <label>Link da imagem</label>
-
           <input name="linkImagem" type="text" required />
 
           <button type="submit">Cadastrar no Banco</button>
@@ -78,5 +76,5 @@ export default function Page() {
         </form>
       </div>
     </div>
-  )
-};
+  );
+}

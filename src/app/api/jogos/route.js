@@ -13,14 +13,22 @@ export async function GET(request) {
     }
 
     const sql = `
-      SELECT * 
-      FROM jogos 
+      SELECT *
+      FROM jogos
       WHERE id_sala = $1
+      ORDER BY id_jogo ASC
     `;
 
     const responseDB = await database.query(sql, [idSala]);
 
-    return Response.json(responseDB.rows, { status: 200 });
+    // retorno consistente
+    return Response.json(
+      {
+        total: responseDB.rows.length,
+        jogos: responseDB.rows
+      },
+      { status: 200 }
+    );
 
   } catch (error) {
     console.error(error);

@@ -2,19 +2,17 @@ import Link from "next/link";
 import styles from "./sala.module.css";
 
 export default async function Sala({ params }) {
-
   const { id } = params;
 
   const res = await fetch(`/api/jogos?id_sala=${id}`, {
-  cache: "no-store",
-});
+    cache: "no-store",
+  });
 
-if (!res.ok) {
-  return <p>Erro ao carregar os jogos</p>;
-}
+  if (!res.ok) {
+    return <p>Erro ao carregar os jogos</p>;
+  }
 
-const jogos = await res.json();
-
+  const jogos = await res.json();
 
   const resSala = await fetch(
     `/api/salas?id=${id}`,
@@ -26,10 +24,10 @@ const jogos = await res.json();
   }
 
   const sala = await resSala.json();
-  
 
-
-  console.log(sala)
+  if (!sala || sala.length === 0) {
+    return <p>Sala não encontrada</p>;
+  }
 
   return (
     <div className={styles.container}>
@@ -48,9 +46,9 @@ const jogos = await res.json();
       </div>
 
       <div className={styles.vitrine}>
-        {jogos.map(jogo => (
+        {jogos.map((jogo) => (
           <div className={styles.card} key={jogo.id_jogo}>
-            <img src={jogo.linkimagem} alt="" />
+            <img src={jogo.linkimagem} alt={jogo.titulo} />
             <h3>{jogo.titulo}</h3>
             <p>{jogo.categoria}</p>
             <p>{jogo.editora}</p>
