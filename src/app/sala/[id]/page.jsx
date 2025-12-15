@@ -6,13 +6,13 @@ export default async function Sala({ params }) {
   const { id } = await params;
 
   const resJogos = await fetch(
-    `http://localhost:3000/api/jogos?id_sala=${id}`,
+    `/api/jogos?id_sala=${id}`,
     { cache: "no-store" } /*obriga o next a não guardar 
                            esses dados em cache*/
   );
 
   const resSala = await fetch(
-    `http://localhost:3000/api/salas?id=${id}`,
+    `/api/salas?id=${id}`,
     { cache: "no-store" }
   );
 

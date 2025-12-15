@@ -136,7 +136,7 @@ npm run dev
 - Tornar o site responsivo.
 - Função de excluir jogo.
 - Autenticação.
-- 
+- Adicionar barra de pesquisa.
 
 ## <img src="./public/image.png" width="40px"> Contatos:
 Caso queira me pagar algum valor, primeiro me contate em algum desses, para que eu mande uma chave pix aleatória😁.
