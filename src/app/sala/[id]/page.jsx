@@ -11,15 +11,19 @@ export default async function Sala({ params }) {
                            esses dados em cache*/
   );
 
+  if (!resJogos.ok) {
+    throw new Error("Erro ao buscar jogos");
+  }
+
   const resSala = await fetch(
     `/api/salas?id=${id}`,
     { cache: "no-store" }
   );
 
-
-  if (!resJogos.ok) {
-    throw new Error("Erro ao buscar jogos");
+  if (!resSala.ok) {
+    throw new Error("Erro ao buscar sala");
   }
+  
 
   const jogos = await resJogos.json();
   const sala = await resSala.json();
