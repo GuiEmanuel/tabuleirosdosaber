@@ -31,32 +31,48 @@ export default function Page() {
 
   return (
     <div>
-      <div className={styles.header}><h1>Cadastro de Jogos</h1></div>
+      <div className={styles.header}>
+
+        <h1>
+          Cadastro de Jogos
+        </h1>
+
+        <Link href="/">
+          Voltar ao início
+        </Link>
+      </div>
+
       <div className={styles.container}>
+
         <form className={styles.formulario} onSubmit={handleSubmit}>
+
           <label>Título do jogo</label>
+
           <input name="titulo" type="text" required />
 
-          <label>Sala do jogo</label>
+          <label>Sala de jogos</label>
+
           <div>
             <input type="radio" name="idSala" value="1" required /> Forja
           </div>
+
           <div>
             <input type="radio" name="idSala" value="2" required /> Tabulando
           </div>
 
           <label>Categoria</label>
+
           <input name="categoria" type="text" required />
 
           <label>Editora</label>
+
           <input name="editora" type="text" required />
 
           <label>Link da imagem</label>
+
           <input name="linkImagem" type="text" required />
 
           <button type="submit">Cadastrar no Banco</button>
-          
-          <Link href="/">Voltar ao início</Link>
 
           {mensagem && <p>{mensagem}</p>}
         </form>

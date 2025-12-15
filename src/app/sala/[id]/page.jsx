@@ -28,7 +28,13 @@ export default async function Sala({ params }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Jogos do {sala[0].nome}</h1>
+        <h1>
+          Jogos do {sala[0].nome}
+        </h1>
+
+        <Link href="/">
+          Voltar ao início
+        </Link>
 
         <Link href="/cadastrarJogos">
           Cadastre um jogo

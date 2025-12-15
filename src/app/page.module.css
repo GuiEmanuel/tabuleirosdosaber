@@ -1,3 +1,87 @@
-body{
-  background-color: #1E2B67;
+:root {
+  --azul-principal: #1E2B67;
+  --azul-claro: #2e3f9e;
+  --cinza-claro: #f4f6fb;
+  --branco: #ffffff;
+}
+
+/* Estrutura geral */
+body {
+  background-color: var(--cinza-claro);
+}
+
+/* Cabeçalho */
+.header {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header a {
+  background-color: var(--branco);
+  color: var(--azul-principal);
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.header a:hover {
+  background-color: var(--azul-claro);
+  color: var(--branco);
+}
+
+/* Seção das salas */
+.salas {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.salas a {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  padding: 20px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.salas a:hover {
+  background-color: var(--azul-claro);
+  transform: translateY(-3px);
+}
+
+/* Descrição */
+.descricao {
+  background-color: var(--branco);
+  margin: 0 auto 40px;
+  padding: 32px;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.descricao h3 {
+  color: var(--azul-principal);
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.descricao p {
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
 }

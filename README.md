@@ -2,6 +2,7 @@ Esse é um projeto [Next.js](https://nextjs.org) com [`create-next-app`](https:/
 
 # Tabuleiros do Saber
 Esse site partiu de um projeto que participo chamado "Tabuleiros do Saber", esse site engloba as duas salas de jogos do IFCE, campus Jaguaruana e Aracati, e tem como objetivo ser uma exposição dos jogos que existem nas duas salas.
+
 ## Descrição do projeto
 Esse projeto possue as seguintes funcionalidades:
 - Cadastrar jogos;
@@ -29,6 +30,17 @@ Esse projeto possue as seguintes funcionalidades:
     [![My Skills](https://skillicons.dev/icons?i=github)](https://skillicons.dev)
 
 ## Designe do projeto
+**Página inicial**
+![Página inicial](./public/paginaInicial.png)
+
+**Página da sala de jogos de Jaguaruana**
+![Página da sala de jogos de Jaguaruana](./public/paginaDoForja.png)
+
+**Página da sala de jogos de Aracati**
+![Página da sala de jogos de Aracati](./public/paginaDoTabulando.png)
+
+**Página de cadastro de jogos**
+![Página de cadastro de jogos](./public/paginaDeCadastro.png)
 
 ## APIs utilizadas
 **cadastrarJogo:** Pega as informações do endPoint ``/api/cadastrarJogo`` e envia para o banco no formato SQL.
@@ -96,7 +108,7 @@ Esse projeto possue as seguintes funcionalidades:
 
 **Exemplo de Resposta:** Cadastra os dados no banco de dados a partir do método POST utilizando um formulário como forma de coleta de dados.
 
-## Como executar a parte Back-end do projeto
+## Como executar o Back-end do projeto
 
 **1. Clonar o projeto ou baixar os arquivo para a sua máquina.**
 
@@ -120,10 +132,11 @@ npm run dev
 - [ ] Autenticação.
 
 ## Implementações futuras
-- Criar uma função que salve os itens que foram comprados no banco.
-- Implementar páginas do header.
 - Melhorar o FrontEnd.
 - Tornar o site responsivo.
+- Função de excluir jogo.
+- Autenticação.
+- 
 
 ## <img src="./public/image.png" width="40px"> Contatos:
 Caso queira me pagar algum valor, primeiro me contate em algum desses, para que eu mande uma chave pix aleatória😁.
