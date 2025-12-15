@@ -12,7 +12,7 @@ export default async function Sala({ params }) {
     return <p>Erro ao carregar os jogos</p>;
   }
 
-  const jogos = await res.json();
+  const { jogos } = await res.json();
 
   const resSala = await fetch(
     `/api/salas?id=${id}`,
@@ -25,7 +25,7 @@ export default async function Sala({ params }) {
 
   const sala = await resSala.json();
 
-  if (!sala || sala.length === 0) {
+  if (!sala?.nome) {
     return <p>Sala não encontrada</p>;
   }
 
@@ -33,7 +33,7 @@ export default async function Sala({ params }) {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>
-          Jogos do {sala[0].nome}
+          Jogos do {sala.nome}
         </h1>
 
         <Link href="/">
